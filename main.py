@@ -28,7 +28,7 @@ class HttpServerEntry(BaseHTTPRequestHandler):
 
 
 def run():
-    server_address = ('127.0.0.1', 80)
+    server_address = ('0.0.0.0', 80)
     httpd = HTTPServer(server_address, HttpServerEntry)
     httpd.serve_forever()
 
