@@ -34,11 +34,3 @@ def run():
 
 if __name__ == '__main__':
     run()
-    #url="/?hehe=haha&xixi=gg"
-    #url = urlparse(url)
-    #query = parse_qsl(url.query)
-    #query_dict = dict()
-    #for x, y in query:
-        #query_dict[x] = y
-    #print(query_dict)
-    #print(url.path)
