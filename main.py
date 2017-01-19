@@ -16,9 +16,9 @@ class HttpServerEntry(BaseHTTPRequestHandler):
             query_dict = dict()
             for x, y in query:
                 query_dict[x] = y
+            self.send_response(200)
             self.wfile.write(bytes(query_dict["echostr"], "utf-8"))
             return
-
             result = global_routine.routine(url.path, **query_dict)
             self.send_response(200)
             self.wfile.write(bytes(result, "utf-8"))
