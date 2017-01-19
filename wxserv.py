@@ -4,7 +4,7 @@ import json
 class WxServ(object):
 
     def __init__(self):
-        self.__token = "ro9er_weixin_token"
+        self.__token = "ro9er_wx_token"
         self.__key = "Wo8e8HAbkD5aXh7B9Dd45p29pBV4x89eKI81YVmg2Ba"
         self.__appId = "wx4c7f5b9e6ae924b2"
         self.__secret = "c6e8082daa0feb702763f41dfd55385d"

@@ -28,17 +28,9 @@ class HttpServerEntry(BaseHTTPRequestHandler):
 
 
 def run():
-    server_address = ('127.0.0.1', 80)
+    server_address = ('0.0.0.0', 80)
     httpd = HTTPServer(server_address, HttpServerEntry)
     httpd.serve_forever()
 
 if __name__ == '__main__':
     run()
-    #url="/?hehe=haha&xixi=gg"
-    #url = urlparse(url)
-    #query = parse_qsl(url.query)
-    #query_dict = dict()
-    #for x, y in query:
-        #query_dict[x] = y
-    #print(query_dict)
-    #print(url.path)
