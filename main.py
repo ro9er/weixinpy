@@ -43,7 +43,7 @@ class HttpServerEntry(BaseHTTPRequestHandler):
         except BaseException as e:
             self.send_response(200)
             self.end_headers()
-            print("error")
+            print("error", e)
             self.wfile.write(bytes("no such routine", "utf-8"))
 
 
