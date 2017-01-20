@@ -18,12 +18,12 @@ class HttpServerEntry(BaseHTTPRequestHandler):
             query_dict = dict()
             for x, y in query:
                 query_dict[x] = y
-            result = global_routine.routine(index, **query_dict)
+            result = global_routine.routine("index", **query_dict)
             print("result: {}".format(result))	
             self.send_response(200)
             self.end_headers()
             self.wfile.write(bytes(result, "utf-8"))
-        except BaseException as ve:
+        except BaseException as e:
             self.send_response(200)
             self.end_headers()
             print("error",e)
