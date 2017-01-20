@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 
 from routine import global_routine
-from index import *
 from urllib.parse import urlparse,parse_qsl
 from http.server import BaseHTTPRequestHandler, HTTPServer
+import xmlparser
 
 
 
@@ -28,7 +28,21 @@ class HttpServerEntry(BaseHTTPRequestHandler):
             self.wfile.write(bytes("no such routine", "utf-8"))
 
     def do_POST(self):
-        pass
+        try:
+            url = self.path
+            length = int(self.headers['Content-length'])
+            data = self.rfile.read(length)
+            xmlData = xmlparser.parse_xml(data)
+            result = global_routine.routine(url.path, {"data": xmlData})
+            print("result: {}".format(result))
+            self.send_response(200)
+            self.end_headers()
+            self.wfile.write(bytes(result, "utf-8"))
+        except BaseException as e:
+            self.send_response(200)
+            self.end_headers()
+            print("error")
+            self.wfile.write(bytes("no such routine", "utf-8"))
 
 
 def run():
