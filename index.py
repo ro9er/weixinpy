@@ -3,7 +3,7 @@ import hashlib
 import functools
 from wxserv import global_wx_serv
 
-@routine.routine("/")
+@routine.routine("index")
 def index(signature, timestamp, nonce, echostr):
     list = [global_wx_serv.get_token(), timestamp, nonce]
     list.sort()

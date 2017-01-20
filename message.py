@@ -3,13 +3,13 @@ import xmlparser
 import wxresponse
 
 
-@routine.routine("/wx")
-def msg_text(text):
+@routine.routine("text")
+def msg_text(data):
     try:
-        if isinstance(text, xmlparser.TextMsg):
-            replyMsg = wxresponse.TextMsg(text.FromUserName,
-                                          text.ToUserName,
-                                          text.Content
+        if isinstance(data, xmlparser.TextMsg):
+            replyMsg = wxresponse.TextMsg(data.FromUserName,
+                                          data.ToUserName,
+                                          data.Content
                                           )
             return replyMsg.send()
         else:

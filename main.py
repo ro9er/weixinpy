@@ -18,7 +18,7 @@ class HttpServerEntry(BaseHTTPRequestHandler):
             query_dict = dict()
             for x, y in query:
                 query_dict[x] = y
-            result = global_routine.routine(url.path, **query_dict)
+            result = global_routine.routine(index, **query_dict)
             print("result: {}".format(result))	
             self.send_response(200)
             self.end_headers()
@@ -36,7 +36,7 @@ class HttpServerEntry(BaseHTTPRequestHandler):
             data = self.rfile.read(length)
             print("post data:{}".format(data))
             xmlData = xmlparser.parse_xml(data)
-            result = global_routine.routine(url.path, **{"text": xmlData})
+            result = global_routine.routine(xmlData.MsgType, **{"data": xmlData})
             print("result: {}".format(result))
             self.send_response(200)
             self.end_headers()
