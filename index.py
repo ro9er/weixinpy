@@ -13,6 +13,8 @@ def index(signature, timestamp, nonce, echostr):
     hashcode = sha1.hexdigest()
     print("handle/GET func: hashcode, signature: ", hashcode, signature)
     if hashcode == signature:
+        print("ws index success")
         return echostr
     else:
+        print("ws index fail")
         return "wrong signature"

@@ -17,10 +17,14 @@ class HttpServerEntry(BaseHTTPRequestHandler):
             for x, y in query:
                 query_dict[x] = y
             result = global_routine.routine(url.path, **query_dict)
+            print("result: {}".format(result))	
             self.send_response(200)
+            self.end_headers()
             self.wfile.write(bytes(result, "utf-8"))
-        except ValueError as ve:
-            self.send_error(404)
+        except BaseException as ve:
+            self.send_response(200)
+            self.end_headers()
+            print("error")
             self.wfile.write(bytes("no such routine", "utf-8"))
 
     def do_POST(self):
