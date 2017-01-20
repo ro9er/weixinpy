@@ -1,8 +1,6 @@
 #!/usr/bin/env python
 
 import logging
-import index
-import message
 
 class Routine(object):
 

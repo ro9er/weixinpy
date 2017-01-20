@@ -4,6 +4,8 @@ from routine import global_routine
 from urllib.parse import urlparse,parse_qsl
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import xmlparser
+import index
+import message
 
 
 
