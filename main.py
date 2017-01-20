@@ -34,6 +34,7 @@ class HttpServerEntry(BaseHTTPRequestHandler):
             url = urlparse(self.path)
             length = int(self.headers['Content-length'])
             data = self.rfile.read(length)
+            print("post data:{}".format(data))
             xmlData = xmlparser.parse_xml(data)
             result = global_routine.routine(url.path, **{"text": xmlData})
             print("result: {}".format(result))

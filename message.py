@@ -9,7 +9,7 @@ def msg_text(text):
         if isinstance(text, xmlparser.TextMsg):
             replyMsg = wxresponse.TextMsg(text.ToUserName,
                                           text.FromUserName,
-                                          text.Content,
+                                          text.Content
                                           )
             return replyMsg.send()
         else:
