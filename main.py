@@ -26,7 +26,7 @@ class HttpServerEntry(BaseHTTPRequestHandler):
         except BaseException as ve:
             self.send_response(200)
             self.end_headers()
-            print("error")
+            print("error",e)
             self.wfile.write(bytes("no such routine", "utf-8"))
 
     def do_POST(self):
@@ -35,7 +35,7 @@ class HttpServerEntry(BaseHTTPRequestHandler):
             length = int(self.headers['Content-length'])
             data = self.rfile.read(length)
             xmlData = xmlparser.parse_xml(data)
-            result = global_routine.routine(url.path, {"data": xmlData})
+            result = global_routine.routine(url, {"data": xmlData})
             print("result: {}".format(result))
             self.send_response(200)
             self.end_headers()
