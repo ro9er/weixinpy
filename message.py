@@ -3,7 +3,7 @@ import xmlparser
 import wxresponse
 
 
-@routine.routine("/msg/text")
+@routine.routine("/wx")
 def msg_text(text):
     try:
         if isinstance(text, xmlparser.TextMsg):

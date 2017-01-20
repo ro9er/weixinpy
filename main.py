@@ -31,11 +31,11 @@ class HttpServerEntry(BaseHTTPRequestHandler):
 
     def do_POST(self):
         try:
-            url = self.path
+            url = urlparse(self.path)
             length = int(self.headers['Content-length'])
             data = self.rfile.read(length)
             xmlData = xmlparser.parse_xml(data)
-            result = global_routine.routine(url, {"data": xmlData})
+            result = global_routine.routine(url.path, **{"text": xmlData})
             print("result: {}".format(result))
             self.send_response(200)
             self.end_headers()
