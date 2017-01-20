@@ -7,8 +7,8 @@ import wxresponse
 def msg_text(text):
     try:
         if isinstance(text, xmlparser.TextMsg):
-            replyMsg = wxresponse.TextMsg(text.ToUserName,
-                                          text.FromUserName,
+            replyMsg = wxresponse.TextMsg(text.FromUserName,
+                                          text.ToUserName,
                                           text.Content
                                           )
             return replyMsg.send()
